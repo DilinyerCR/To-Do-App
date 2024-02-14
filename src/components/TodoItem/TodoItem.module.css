@@ -1,0 +1,75 @@
+.Items {
+    padding: 8px 20px;
+    min-height: 48px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    border-bottom: 1px solid var(--Very-Dark-Grayish-Blue-2);
+}
+
+.Items .div1 {
+    display: flex;
+    align-items: center;
+}
+
+.Items .div1 p {
+    margin-left: 12px;
+    padding-right: 6px;
+
+    font-size: 1.3rem;
+    color: var(--Light-Grayish-Blue);
+}
+
+.Items .Circle {
+    min-width: 20px;
+    height: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    border: 2px solid var(--Very-Dark-Grayish-Blue-2);
+}
+
+.Items .Circle img {
+    width: 10px;
+}
+
+.Items .CloseIcon {
+    background-color: transparent;
+    border: none;
+}
+
+.Items .CloseIcon img {
+    width: 14px;
+}
+
+
+
+/* !======MEDIA QUERIES====== */
+@media screen and (min-width: 1080px) {
+    .Items {
+        min-height: 62px;
+    }
+
+    .Items .div1 p {
+        font-size: 1.4rem;
+    }
+
+    .Items .Circle {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .Items .div1 p {
+        margin-left: 20px;
+    }
+
+    .Items .Circle img {
+        width: 14px;
+    }
+}
