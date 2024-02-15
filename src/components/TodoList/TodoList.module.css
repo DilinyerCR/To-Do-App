@@ -30,8 +30,8 @@
 }
 
 .TodoList form button {
-    min-width: 20px;
-    height: 20px;
+    min-width: 24px;
+    height: 24px;
 
     background-color: transparent;
     border-radius: 50%;
@@ -131,8 +131,8 @@
     }
 
     .TodoList form button {
-        width: 30px;
-        height: 30px;
+        min-width: 28px;
+        min-height: 28px;
     }
 
     .TodoList form input {
@@ -171,19 +171,6 @@
         top: -135px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .Items {

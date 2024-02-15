@@ -23,16 +23,38 @@
     color: var(--Light-Grayish-Blue);
 }
 
+.Items .div1 p:hover {
+    /* cursor: grab; */
+    cursor: pointer;
+}
+
 .Items .Circle {
-    min-width: 20px;
-    height: 20px;
+    min-width: 22px;
+    height: 22px;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    border: none;
     border-radius: 50%;
-    border: 2px solid var(--Very-Dark-Grayish-Blue-2);
+}
+
+.Items .BackButton {
+    min-width: 26px;
+    height: 26px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 50%;
+    border: none;
+    background-color: var(--Very-Dark-Grayish-Blue-2);
+}
+
+.Items .BackButton:hover {
+    background-image: linear-gradient(130deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
 .Items .Circle img {
@@ -61,8 +83,8 @@
     }
 
     .Items .Circle {
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 26px;
     }
     
     .Items .div1 p {
@@ -71,5 +93,10 @@
 
     .Items .Circle img {
         width: 14px;
+    }
+
+    .Items .BackButton {
+        min-width: 28px;
+        height: 28px;
     }
 }

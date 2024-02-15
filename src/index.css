@@ -22,6 +22,7 @@ button, input {
 
 button:hover {
   cursor: pointer;
+  color: var(--Very-Light-Grayish-Blue);
 }
 
 :root {

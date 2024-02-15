@@ -1,7 +1,6 @@
 import style from './TodoList.module.css'
 import { useState } from 'react'
 import TodoItem from '../TodoItem/TodoItem'
-// import CloseIcon from '../../assets/icon-cross.svg';
 
 
 const TodoList = () => {
@@ -10,12 +9,20 @@ const TodoList = () => {
 
   const [tasks, setTasks] = useState([])
 
+  const [allTasks, setAllTasks] = useState([])
+
+  const [itemLeft, setItemLeft] = useState(0)
+
+  const [activeButton, setActiveButton] = useState(false)
+  const [completedButton, setCompletedButton] = useState(false)
+  const [all, setAll] = useState(true)
 
 
+  // ? ===Funciones===
   const handleInputChange = (event) => {
     setInputValue(event.target.value)
   }
-
+    // Agregar tareas
   const handleAddTask = (event) => {
     event.preventDefault();
   
@@ -25,24 +32,69 @@ const TodoList = () => {
         id: Date.now(),
         completed: false
       };
-      setTasks([...tasks, newTask]);
+      setAllTasks([...allTasks, newTask]);
+      setTasks([...allTasks, newTask]);
       setInputValue("");
+      setItemLeft(itemLeft + 1)
     }
   };
 
+  // Cerrar tareas
   const handleCloseTask = (id) => {
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    setTasks(updatedTasks);
-  }
+    const taskToRemove = tasks.find((task) => task.id === id);
 
-  const handleCompleted = (id) => {
-    const taskToUpdate = tasks.find((task) => task.id === id);
-    const updatedTask = { ...taskToUpdate, completed: !taskToUpdate.completed };
-    const updatedTasks = tasks.map((task) => (task.id === id ? updatedTask : task));
+    if (!taskToRemove.completed) {
+      setItemLeft((prevItemLeft) => prevItemLeft - 1);
+    }
+
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setAllTasks(updatedTasks);
     setTasks(updatedTasks);
   };
-    
+  
+  // Marcar tareas como completadas
+  const handleCompleted = (id) => {
+    const taskToUpdate = tasks.find((task) => task.id === id);
 
+    const updatedTask = { ...taskToUpdate, completed: !taskToUpdate.completed };
+
+    const updatedTasks = tasks.map((task) => (task.id === id ? updatedTask : task));
+  
+    const changeInItemLeft = updatedTask.completed ? -1 : 1;
+  
+    setItemLeft((prevItemLeft) => prevItemLeft + changeInItemLeft);
+    setAllTasks(updatedTasks);
+    setTasks(updatedTasks);
+  };
+
+  const filterActiveTasks = () => {
+    const activeTasks = allTasks.filter((task) => !task.completed);
+    setTasks(activeTasks);
+    if(!activeButton ) {
+      setActiveButton(true)
+      setCompletedButton(false)
+      setAll(false)
+    } 
+  }
+
+  const filterCompletedTasks = () => {
+    const completedTasks = allTasks.filter((task) => task.completed === true);
+    setTasks(completedTasks);
+    if(!completedButton) {
+      setCompletedButton(true);
+      setActiveButton(false)
+      setAll(false)
+    }
+  }
+
+  const clearCompletedTasks = () => {
+    const clearCompleted = allTasks.filter((task) => !task.completed);
+    setAllTasks(clearCompleted);
+    setTasks(clearCompleted);
+  }
+
+
+  
     // ! ====== Renderizado ======
     return (
       <div className={style.TodoListMainContainer}>
@@ -75,22 +127,32 @@ const TodoList = () => {
 
 
             <div className={style.ActionsContainerOne}>
-              <p>5 items left</p>
+              <p>{itemLeft} items left</p>
                 <div className={style.DektopOptionscontainer}>
-                  <button>All</button>
-                  <button>Active</button>
-                  <button>Completed</button>
+                  <button onClick={() => { setTasks(allTasks), setAll(true), setCompletedButton(false), setActiveButton(false) }} 
+                  style={{color: all ? 'var(--Bright-Blue)' : 'var(--Dark-Grayish-Blue)'}}>All</button>
+
+                  <button onClick={filterActiveTasks}
+                  style={{color: activeButton ? 'var(--Bright-Blue)' : 'var(--Dark-Grayish-Blue)'}}>Active</button>
+
+                  <button onClick={filterCompletedTasks} 
+                  style={{color: completedButton ? 'var(--Bright-Blue)' : 'var(--Dark-Grayish-Blue)'}}>Completed</button>
                 </div>
-              <button>Clear Completed</button>
+              <button onClick={clearCompletedTasks}>Clear Completed</button>
 
 
             </div>
           </div>
 
           <div className={style.ActionsContainerTwo}>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
+            <button onClick={() => { setTasks(allTasks), setAll(true), setCompletedButton(false), setActiveButton(false) }} 
+            style={{color: all ? 'var(--Bright-Blue)' : 'var(--Dark-Grayish-Blue)'}}>All</button>
+
+            <button onClick={filterActiveTasks}
+            style={{color: activeButton ? 'var(--Bright-Blue)' : 'var(--Dark-Grayish-Blue)'}}>Active</button>
+
+            <button onClick={filterCompletedTasks} 
+            style={{color: completedButton ? 'var(--Bright-Blue)' : 'var(--Dark-Grayish-Blue)'}}>Completed</button>
           </div>
 
           <p className={style.DragAndDrop}>Drag and drop to reorder list</p>
