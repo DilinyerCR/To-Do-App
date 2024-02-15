@@ -122,6 +122,7 @@ const TodoList = () => {
               task={task}
               handleCloseTask={handleCloseTask}
               handleCompleted={handleCompleted}
+              all={all}
               />
             ))}
 

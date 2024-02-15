@@ -2,7 +2,7 @@ import style from "./TodoItem.module.css";
 import CloseIcon from '../../assets/icon-cross.svg';
 import CheckIcon from '../../assets/icon-check.svg'
 
-const TodoItem = ({ task, handleCloseTask, handleCompleted }) => {
+const TodoItem = ({ task, handleCloseTask, handleCompleted, all }) => {
 
     return (
         <div className={style.Items} key={task.id}>
@@ -26,7 +26,8 @@ const TodoItem = ({ task, handleCloseTask, handleCompleted }) => {
             </div>
 
             <div>
-                <button className={style.CloseIcon} onClick={()=>handleCloseTask(task.id)}>
+                <button className={style.CloseIcon} onClick={()=>handleCloseTask(task.id)} 
+                style={{display: all ? 'block' : 'none'}}>
                     <img src={CloseIcon} alt="CloseIcon" />
                 </button>
             </div>

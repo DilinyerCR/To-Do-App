@@ -53,12 +53,12 @@ button:hover {
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  background-color: hsl(234, 11%, 52%);
+  width: 10px;
+  background-color: var(--Very-Dark-Blue);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(237, 14%, 26%);
+  background-color: hsl(234, 11%, 28%);
   border-radius: 10px;
 }
 
