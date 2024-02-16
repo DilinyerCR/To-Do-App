@@ -90,7 +90,17 @@ const TodoList = () => {
   const clearCompletedTasks = () => {
     const clearCompleted = allTasks.filter((task) => !task.completed);
     setAllTasks(clearCompleted);
-    setTasks(clearCompleted);
+
+    const activeTasks = tasks.filter((task) => !task.completed);
+    setTasks(activeTasks);
+  }
+
+  const asd = () => {
+    const clearCompleted = allTasks.filter((task) => !task.completed);
+    setAllTasks(clearCompleted);
+    // Modificado aquí para mantener las tareas activas en la lista de tareas mostradas
+    const activeTasks = tasks.filter((task) => !task.completed);
+    setTasks(activeTasks);
   }
 
 
