@@ -48,6 +48,8 @@
     font-size: 1.3rem;
     color: var(--Light-Grayish-Blue);
     outline: none;
+    
+    caret-color: var(--Bright-Blue);
 }
 
 .TodoList form input::placeholder {

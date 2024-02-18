@@ -1,6 +1,13 @@
+.Main {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--Very-Dark-Desaturated-Blue);
+}
+
 .Items {
-    padding: 8px 20px;
+    padding: 8px 12px;
     min-height: 48px;
+    width: 100%;
 
     display: flex;
     justify-content: space-between;
@@ -10,25 +17,32 @@
     border-bottom: 1px solid var(--Very-Dark-Grayish-Blue-2);
 }
 
+.Items:hover {
+    cursor: grab;
+}
+
 .Items .div1 {
     display: flex;
     align-items: center;
 }
 
 .Items .div1 p {
-    margin-left: 12px;
-    padding-right: 6px;
-
     font-size: 1.3rem;
     color: var(--Light-Grayish-Blue);
 }
 
-.Items .div1 p:hover {
-    /* cursor: grab; */
-    cursor: pointer;
+
+.CheckButtonMainContainer {
+    padding-left: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid var(--Very-Dark-Grayish-Blue-2);
 }
 
-.Items .Circle {
+.Main .Circle {
     min-width: 22px;
     height: 22px;
 
@@ -40,7 +54,7 @@
     border-radius: 50%;
 }
 
-.Items .BackButton {
+.Main .BackButton {
     min-width: 26px;
     height: 26px;
 
@@ -53,20 +67,27 @@
     background-color: var(--Very-Dark-Grayish-Blue-2);
 }
 
-.Items .BackButton:hover {
+.Main .BackButton:hover {
     background-image: linear-gradient(130deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
-.Items .Circle img {
+.Main .Circle img {
     width: 10px;
 }
 
-.Items .CloseIcon {
+.CloseIcon {
+    padding: 0 20px;
+    height: 100%;
+
     background-color: transparent;
-    border: none;
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--Very-Dark-Grayish-Blue-2);
 }
 
-.Items .CloseIcon img {
+.CloseIcon img {
     width: 14px;
 }
 
@@ -75,27 +96,28 @@
 /* !======MEDIA QUERIES====== */
 @media screen and (min-width: 1080px) {
     .Items {
+        padding: 8px 0;
         min-height: 62px;
     }
-
+    
     .Items .div1 p {
         font-size: 1.4rem;
     }
 
-    .Items .Circle {
+    .Items .div1 {
+        padding-left: 20px;
+    }
+
+    .Main .Circle {
         width: 26px;
         height: 26px;
     }
     
-    .Items .div1 p {
-        margin-left: 20px;
-    }
-
-    .Items .Circle img {
+    .Main .Circle img {
         width: 14px;
     }
 
-    .Items .BackButton {
+    .Main .BackButton {
         min-width: 28px;
         height: 28px;
     }
