@@ -36,11 +36,11 @@ button:hover {
 
   /* ### Light Theme */
 
-  --Very-Light-Gray: hsl(0, 0%, 98%);
+  /* --Very-Light-Gray: hsl(0, 0%, 98%); */
   --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
-  --Light-Grayish-Blue: hsl(233, 11%, 84%);
+  /* --Light-Grayish-Blue: hsl(233, 11%, 84%);
   --Dark-Grayish-Blue: hsl(236, 9%, 61%);
-  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%); */
 
   /* ### Dark Theme */
 
@@ -51,6 +51,18 @@ button:hover {
   --Dark-Grayish-Blue: hsl(234, 11%, 52%);
   --Very-Dark-Grayish-Blue-1: hsl(233, 14%, 35%);
   --Very-Dark-Grayish-Blue-2: hsl(237, 14%, 26%);
+  --Box-Shadow: rgba(0,0,0,0.75);
+
+}
+
+html[data-theme='light'] {
+  --Very-Dark-Blue: hsl(236, 33%, 92%);
+  --Very-Dark-Desaturated-Blue: hsl(0, 0%, 98%);
+  --Light-Grayish-Blue: hsl(235, 19%, 35%);
+  --Very-Dark-Grayish-Blue-2: hsl(236, 9%, 85%);
+
+
+  --Box-Shadow: rgba(0,0,0,0.20);
 }
 
 ::-webkit-scrollbar {

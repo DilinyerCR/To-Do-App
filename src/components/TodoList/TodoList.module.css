@@ -67,7 +67,7 @@
 .ListItemsContainer {
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 14px 16px 60px 5px rgba(0,0,0,0.75);
+    box-shadow: 14px 16px 60px 5px var(--Box-Shadow);
 }
 
 .ActionsContainerOne {

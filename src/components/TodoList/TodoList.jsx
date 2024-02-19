@@ -1,5 +1,5 @@
 import style from './TodoList.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TodoItem from '../TodoItem/TodoItem';
 import { DndContext, closestCenter } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-kit/sortable';
@@ -9,7 +9,6 @@ const TodoList = () => {
   const [tasks, setTasks] = useState([]);
   const [allTasks, setAllTasks] = useState([]);
   const [itemLeft, setItemLeft] = useState(0);
-
   const [activeButton, setActiveButton] = useState(false);
   const [completedButton, setCompletedButton] = useState(false);
   const [all, setAll] = useState(true);
@@ -18,6 +17,7 @@ const TodoList = () => {
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
+
   // Agregar tareas
   const handleAddTask = (event) => {
     event.preventDefault();
@@ -104,6 +104,8 @@ const TodoList = () => {
       return arrayMove(tasks, oldIndex, newIndex)
     })
   }
+
+
 
   // ! ====== Renderizado ======
   return (
