@@ -5,10 +5,10 @@ import Moon from '../../assets/icon-moon.svg';
 
 
 const ThemeToggle = () => {
-    const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useState("dark")
     
     const toggleTheme = () => {
-        theme === "light" ? setTheme("dark") : setTheme("light");
+        theme === "dark" ? setTheme("light") : setTheme("dark");
         console.log(theme)
     };
 
